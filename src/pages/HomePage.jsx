@@ -7,7 +7,7 @@ function HomePage() {
         <div className={styles.container}>
           <div className={styles.headerInner}>
             <a href="#">
-              <img className={styles.logo} src="src/assets/logo.png" alt="Invite Love" />
+              <img className={styles.logo} src="/assets/logo.png" alt="Invite Love" />
             </a>
 
             <nav className={styles.nav}>
@@ -130,7 +130,7 @@ function HomePage() {
             <article className={styles.eventModernCard}>
               <div className={styles.eventModernImage}>
                 <img
-                  src="/src/assets/wedding.jpg"
+                  src="../assets/wedding.jpg"
                   alt="Հարսանիք"
                 />
               </div>
@@ -150,7 +150,7 @@ function HomePage() {
             <article className={styles.eventModernCard}>
               <div className={styles.eventModernImage}>
                 <img
-                  src="/src/assets/birthday.jpg"
+                  src="/assets/birthday.jpg"
                   alt="Ծննդյան օր"
                 />
               </div>
@@ -170,7 +170,7 @@ function HomePage() {
             <article className={styles.eventModernCard}>
               <div className={styles.eventModernImage}>
                 <img
-                  src="/src/assets/other.jpg"
+                  src="../assets/other.jpg"
                   alt="Այլ միջոցառումներ"
                 />
               </div>
