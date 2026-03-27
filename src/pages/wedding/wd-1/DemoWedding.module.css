@@ -1,0 +1,600 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Armenian:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --bg: #f8f5f3;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-solid: #ffffff;
+  --text: #141316;
+  --text-soft: #625d64;
+  --line: rgba(122, 16, 40, 0.1);
+
+  --accent: #8f1028;
+  --accent-dark: #6e0d1f;
+  --accent-soft: #f6e8eb;
+
+  --shadow: 0 14px 40px rgba(20, 19, 22, 0.08);
+  --shadow-strong: 0 24px 60px rgba(20, 19, 22, 0.12);
+
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.page {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(15, 12, 13, 0.22), rgba(15, 12, 13, 0.42)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80")
+      center center / cover no-repeat;
+  transform: scale(1.04);
+  animation: heroZoom 12s ease-out forwards;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 80% 70%, rgba(143, 16, 40, 0.12), transparent 26%);
+}
+
+.heroGlow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: 8%;
+  top: 10%;
+  border-radius: 50%;
+  background: rgba(143, 16, 40, 0.12);
+  filter: blur(60px);
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.heroTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  animation: fadeDown 0.8s ease both;
+}
+
+.heroTopText {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.heroTopDivider {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.heroCard {
+  width: min(640px, 100%);
+  padding: 48px 38px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+  color: white;
+  animation: fadeScale 1s ease 0.12s both;
+}
+
+.date {
+  margin: 0 0 18px;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.title,
+.sectionTitle,
+.timelineBody h3,
+.locationCard h3 {
+  font-family: "Noto Sans Armenian", Inter, sans-serif;
+}
+
+.title {
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.title span {
+  display: block;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.1;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.subtitle {
+  margin: 22px 0 0;
+  max-width: 420px;
+  font-size: 17px;
+  line-height: 1.85;
+  opacity: 0.92;
+}
+
+.heroActions {
+  margin-top: 28px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.scrollHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  animation: fadeUp 1s ease 0.35s both;
+}
+
+.scrollLine {
+  width: 42px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* COMMON */
+
+.section {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.sectionIntro {
+  max-width: 620px;
+  margin-bottom: 34px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* STORY */
+
+.storyLayout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.storyTextCard,
+.storyImageCard,
+.timelineItem,
+.dressCodeBox,
+.locationCard,
+.rsvpBox {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.storyTextCard:hover,
+.storyImageCard:hover,
+.timelineItem:hover,
+.dressCodeBox:hover,
+.locationCard:hover,
+.rsvpBox:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(143, 16, 40, 0.18);
+}
+
+.storyTextCard {
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.storyTextCard p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-soft);
+}
+
+.storyTextCard p:last-child {
+  margin-bottom: 0;
+}
+
+.storyImageCard {
+  overflow: hidden;
+}
+
+.storyImageCard img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  transition: transform 0.9s ease;
+}
+
+.storyImageCard:hover img {
+  transform: scale(1.04);
+}
+
+/* TIMELINE */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timelineItem {
+  padding: 24px 24px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.timelineTime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.timelineBody h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.timelineBody p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* DRESS CODE */
+
+.dressCodeBox {
+  padding: 28px 24px;
+}
+
+.dressText {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-soft);
+  margin-bottom: 22px;
+}
+
+.colors {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.colors span {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 8px 20px rgba(20, 19, 22, 0.08);
+  animation: fadeUp 0.7s ease both;
+}
+
+.colors span:nth-child(2) {
+  animation-delay: 0.04s;
+}
+.colors span:nth-child(3) {
+  animation-delay: 0.08s;
+}
+.colors span:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
+/* LOCATION */
+
+.locationCard {
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.locationCard h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.locationCard p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-soft);
+}
+
+/* RSVP */
+
+.rsvpBox {
+  padding: 34px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.rsvpText {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+
+.rsvpAction {
+  display: flex;
+  align-items: center;
+}
+
+/* BUTTONS */
+
+.primaryButton,
+.secondaryButton {
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 12px 24px rgba(143, 16, 40, 0.18);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  opacity: 0.96;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  border: 1px solid rgba(143, 16, 40, 0.12);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  color: var(--accent);
+  border-color: rgba(143, 16, 40, 0.2);
+}
+
+/* ANIMATIONS */
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .storyLayout,
+  .rsvpBox {
+    grid-template-columns: 1fr;
+  }
+
+  .locationCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timelineItem {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroInner,
+  .section {
+    width: min(980px, calc(100% - 24px));
+  }
+
+  .heroCard {
+    padding: 30px 22px;
+    border-radius: 24px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.02;
+  }
+
+  .title span {
+    font-size: 22px;
+  }
+
+  .subtitle,
+  .heroText,
+  .storyTextCard p,
+  .timelineBody p,
+  .dressText,
+  .locationCard p,
+  .rsvpText {
+    font-size: 15px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+  }
+
+  .storyImageCard img {
+    min-height: 280px;
+  }
+
+  .rsvpBox {
+    padding: 26px 20px;
+  }
+}

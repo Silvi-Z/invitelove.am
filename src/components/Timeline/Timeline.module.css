@@ -1,0 +1,152 @@
+.section {
+  padding: 120px 0;
+  background: #f7f8fa;
+}
+
+.container {
+  max-width: 1180px;
+}
+
+.header {
+  max-width: 760px;
+  margin: 0 auto 54px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #6b7280;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 46px;
+  line-height: 1.02;
+  color: #18181b;
+  margin-bottom: 18px;
+}
+
+.intro {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #5f6470;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.card {
+  min-height: 260px;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 34px rgba(24, 24, 27, 0.06);
+  transition: transform 0.26s ease, box-shadow 0.26s ease,
+    border-color 0.26s ease;
+  animation: cardReveal 0.8s ease both;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(24, 24, 27, 0.1);
+  border-color: #e7e1ea;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.index {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8b90a0;
+}
+
+.time {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.cardTitle {
+  font-size: 34px;
+  line-height: 1.02;
+  color: #18181b;
+  margin-bottom: 14px;
+}
+
+.description {
+  max-width: 460px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #5f6470;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 78px 0;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .intro {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 22px 20px;
+    border-radius: 22px;
+  }
+
+  .top {
+    margin-bottom: 18px;
+  }
+
+  .cardTitle {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+}
