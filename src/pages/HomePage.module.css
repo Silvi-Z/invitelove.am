@@ -104,6 +104,39 @@ a {
   transform: translateY(-1px);
 }
 
+.burger {
+  display: none;
+  width: 26px;
+  height: 22px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin-left: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.isOpen span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.isOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.isOpen span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 /* BUTTONS */
 
 .headerButton,
@@ -123,7 +156,7 @@ a {
     background 0.22s ease,
     border-color 0.22s ease,
     color 0.22s ease;
-  white-space: nowrap;
+    text-align: center;
   font-weight: 600;
 }
 
@@ -887,14 +920,57 @@ a {
 
   .headerInner {
     min-height: auto;
-    padding: 16px 0;
+    padding: 15px 0;
     flex-wrap: wrap;
+    position: relative;
+    gap: 12px;
+  }
+
+  .burger {
+    display: flex;
   }
 
   .nav {
-    width: 100%;
-    gap: 14px;
-    flex-wrap: wrap;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(248, 245, 243, 0.97);
+    border-top: 1px solid rgba(143, 16, 40, 0.08);
+    box-shadow: 0 12px 24px rgba(19, 17, 20, 0.12);
+    z-index: 20;
+    padding: 0.5rem 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+  }
+
+  .nav .primaryButton {
+    color: white
+  }
+
+  .nav.open {
+    display: flex;
+    max-height: 315px;
+    opacity: 1;
+  }
+
+  .nav a {
+    display: block;
+    padding: 0.9rem 1.25rem;
+    color: #42464f;
+    border-top: 1px solid rgba(143, 16, 40, 0.08);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .headerButton {
+    min-width: 50px;
+    padding: 0.55rem 1rem;
+    white-space: nowrap;
   }
 
   .hero,
@@ -905,11 +981,11 @@ a {
   .pricing,
   .faq,
   .cta {
-    padding: 72px 0;
+    padding: 30px 0;
   }
 
   .heroShell {
-    padding: 20px 18px;
+    padding: 15px;
     border-radius: 24px;
   }
 
@@ -925,17 +1001,16 @@ a {
   .includedColumns,
   .pricingModernGrid,
   .faqGrid,
-
-
   .heroTitle {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 1.1;
     max-width: none;
+    grid-template-columns: 1fr;
   }
 
   .sectionTitle,
   .ctaTitle {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.08;
   }
 
@@ -975,8 +1050,8 @@ a {
     grid-column: auto;
   }
 
-  .includedModern {
-    padding: 24px 20px;
+  .includedModern, .whyMiniCard, .eventModernBody, .processRow, .eventModernCard, .pricingModernCard, .faqItem {
+    padding: 15px;
   }
 
   .processRow {
@@ -994,10 +1069,32 @@ a {
   }
 
   .priceModern {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .ctaBox {
-    padding: 28px 22px;
+    padding: 15px;
+  }
+
+  .heroActions a {
+    font-size: 14px;
+  }
+
+  .heroGrid {
+    gap: 32px;
+  }
+
+  .whyLeadCard {
+    padding: 15px;
+  }
+
+  .whyModernGrid,
+  .eventsModernGrid,
+  .pricingModernGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faqItem {
+    padding: 15px;
   }
 }

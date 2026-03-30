@@ -2,29 +2,7 @@ import styles from "./HomePage.module.css";
 
 function HomePage() {
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.headerInner}>
-            <a href="#">
-              <img className={styles.logo} src="/assets/logo.png" alt="Invite Love" />
-            </a>
-
-            <nav className={styles.nav}>
-              <a href="#events">Միջոցառումներ</a>
-              <a href="#included">Ներառում է</a>
-              <a href="#process">Ընթացք</a>
-              <a href="#pricing">Գներ</a>
-              <a href="#contact">Կապ</a>
-            </nav>
-
-            <a href="#contact" className={styles.headerButton}>
-              Պատվիրել
-            </a>
-          </div>
-        </div>
-      </header>
-
+    <>
       <section className={styles.hero}>
         <div className={styles.heroGlowOne}></div>
         <div className={styles.heroGlowTwo}></div>
@@ -53,7 +31,7 @@ function HomePage() {
                 </p>
 
                 <div className={styles.heroActions}>
-                  <a href="#events" className={styles.primaryButton}>
+                  <a href="/catalog" className={styles.primaryButton}>
                     Տեսնել տարբերակները
                   </a>
                   <a href="#contact" className={styles.secondaryButton}>
@@ -416,7 +394,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+      </>
   );
 }
 
