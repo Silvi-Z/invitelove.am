@@ -6,13 +6,11 @@ import CatalogPage from "./pages/catalog/catalog";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/wedding/wd-2" element={<WD_2 />} />
         <Route path="/catalog" element={<CatalogPage />} />
       </Routes>
-    </BrowserRouter>
   );
 }
 

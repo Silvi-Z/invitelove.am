@@ -77,7 +77,7 @@
 
 .catalogGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -212,4 +212,34 @@
     padding: 3rem;
     color: #666;
     font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+
+    .sortSection {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .catalogContainer {
+        margin: 0;
+    }
+
+    .cardImageWrapper {
+        height: 300px;
+    }
+
+    .cardContent {
+        padding: 1rem;
+    }
+
+    .cardTitle {
+        margin-top: 0;;
+    }
+
+    .cardFooter {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
 }

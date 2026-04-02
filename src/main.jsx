@@ -3,18 +3,21 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/global.css";
 import styles from "./pages/HomePage.module.css";
+import { Link } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 
 const Root = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <BrowserRouter>
     <main className={styles.page}>
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.headerInner}>
-            <a href="/">
+            <Link to="/">
               <img className={styles.logo} src="/assets/logo.png" alt="Invite Love" />
-            </a>
+            </Link>
 
             <button
               className={`${styles.burger} ${menuOpen ? styles.isOpen : ""}`}
@@ -27,24 +30,24 @@ const Root = () => {
             </button>
 
             <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
-              <a href="#events" onClick={() => setMenuOpen(false)}>
+              <Link to="#events" onClick={() => setMenuOpen(false)}>
                 Միջոցառումներ
-              </a>
-              <a href="#included" onClick={() => setMenuOpen(false)}>
+              </Link>
+              <Link to="#included" onClick={() => setMenuOpen(false)}>
                 Ներառում է
-              </a>
-              <a href="#process" onClick={() => setMenuOpen(false)}>
+              </Link>
+              <Link to="#process" onClick={() => setMenuOpen(false)}>
                 Ընթացք
-              </a>
-              <a href="#pricing" onClick={() => setMenuOpen(false)}>
+              </Link>
+              <Link to="#pricing" onClick={() => setMenuOpen(false)}>
                 Գներ
-              </a>
-              <a href="#contact" onClick={() => setMenuOpen(false)}>
+              </Link>
+              <Link to="#contact" onClick={() => setMenuOpen(false)}>
                 Կապ
-              </a>
-               <a href="#" className={styles.primaryButton} onClick={() => setMenuOpen(false)}>
+              </Link>
+               <Link to="#" className={styles.primaryButton} onClick={() => setMenuOpen(false)}>
               Պատվիրել
-            </a>
+            </Link>
             </nav>
 
            
@@ -53,6 +56,8 @@ const Root = () => {
       </header>
       <App />
     </main>
+        </BrowserRouter>
+
   );
 };
 

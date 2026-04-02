@@ -948,6 +948,10 @@ a {
     transition: max-height 0.35s ease, opacity 0.35s ease;
   }
 
+  .logo {
+    width: 120px;
+  }
+
   .nav .primaryButton {
     color: white
   }

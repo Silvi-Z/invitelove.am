@@ -1,4 +1,5 @@
 import styles from "./HomePage.module.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -31,12 +32,12 @@ function HomePage() {
                 </p>
 
                 <div className={styles.heroActions}>
-                  <a href="/catalog" className={styles.primaryButton}>
+                  <Link to="/catalog" className={styles.primaryButton}>
                     Տեսնել տարբերակները
-                  </a>
-                  <a href="#contact" className={styles.secondaryButton}>
+                  </Link>
+                  <Link to="#contact" className={styles.secondaryButton}>
                     Պատվիրել կայք
-                  </a>
+                  </Link>
                 </div>
               </div>
 
