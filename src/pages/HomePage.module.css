@@ -41,7 +41,8 @@ img {
 }
 
 .logo {
-    width: 200px;
+    width: 120px;
+    padding: 10px 20px;
 }
 
 a {
@@ -161,7 +162,7 @@ a {
 }
 
 .headerButton,
-.primaryButton {
+.nav .primaryButton, .primaryButton {
   background: var(--accent);
   color: white;
   box-shadow: 0 10px 24px rgba(143, 16, 40, 0.18);
